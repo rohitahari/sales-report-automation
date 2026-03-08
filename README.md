@@ -64,12 +64,7 @@ Laptop,1200
 Phone,800  
 Tablet,500  
 
-## License
 
-MIT
-=======
-2. Drop CSV files into the data folder
-3. Reports will appear automatically in the reports folder
 
 
 
