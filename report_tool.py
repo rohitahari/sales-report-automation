@@ -5,6 +5,13 @@ import argparse
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 
 parser = argparse.ArgumentParser(description="CSV Sales Automation Tool")
 parser.add_argument("--input", default="data", help="Input folder")
@@ -63,11 +70,16 @@ def process_file(path):
             f"report_{filename.replace('.csv','.xlsx')}"
         )
 
-        with pd.ExcelWriter(output_file) as writer:
-            summary_df.to_excel(writer, sheet_name="Summary", index=False)
-            product_sales.reset_index().to_excel(writer, sheet_name="Sales by Product", index=False)
+        with pd.ExcelWriter(output_file, engine="openpyxl") as writer:
+          summary_df.to_excel(writer, sheet_name="Summary", index=False)
 
-        print(f"Report generated: {output_file}")
+        product_sales.reset_index().to_excel(
+        writer,
+        sheet_name="Sales by Product",
+        index=False
+    )
+
+        logging.info(f"Report generated: {output_file}")
 
     except Exception as e:
         print(f"Error processing {path}: {e}")

@@ -43,6 +43,7 @@ python report_tool.py
 ## Usage
 
 1. Start the tool
+<<<<<<< HEAD
 2. Drop CSV files into the `data` folder
 3. Reports will automatically appear in the `reports` folder
 
@@ -66,3 +67,23 @@ Tablet,500
 ## License
 
 MIT
+=======
+2. Drop CSV files into the data folder
+3. Reports will appear automatically in the reports folder
+
+
+
+## Example Workflow
+
+1. Start the automation tool.
+2. Drop a CSV file into the `data` folder.
+3. The tool automatically processes the file.
+4. An Excel report is generated in the `reports` folder.
+
+## Example Output
+
+The Excel report includes:
+
+- Summary sheet
+- Sales by Product analysis
+>>>>>>> 2cf71b8 (Improve automation tool structure and logging)
